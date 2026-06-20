@@ -28,8 +28,8 @@ jobs:
         
       - name: SukiSU Setup
         run: |
-          patch -p1 < scope-min-hooks-v1.9.patch
           curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh" | bash -s main
+          curl -LSs "https://raw.githubusercontent.com/JackA1ltman/NonGKI_Kernel_Build_2nd/refs/heads/mainline/Patches/syscall_hook_patches.sh" | bash -s
 
       - name: Clone dts kernel
         run: |
