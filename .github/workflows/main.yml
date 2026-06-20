@@ -97,13 +97,12 @@ jobs:
           git clone -b mido-4.19 https://github.com/malkist01/Anykernel3 AnyKernel
           cp out/arch/arm64/boot/Image.gz-dtb AnyKernel/
 
-      - name: Zip kernel
+      - name: Upload
         run: |
-          cd AnyKernel
-          zip -r9 Kernel-$KERNELNAME-$(date +%Y%m%d).zip ./*
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Kernel-$KERNELNAME
-          path: AnyKernel/*.zip
+          mkdir Upload
+          cp -rf AnyKernel3/* Upload
+      - id: Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: "${{ KERNELNAME }}"
+        path: Upload/*
