@@ -28,8 +28,8 @@ jobs:
         
       - name: KernelSU
         run: |
-          wget https://raw.githubusercontent.com/rksuorg/kernel_patches/refs/heads/master/manual_hook/kernel-4.19.patch
-          patch -p1 < kernel-4.19.patch
+          wget https://raw.githubusercontent.com/rksuorg/kernel_patches/refs/heads/master/kernel-4.19_5.4.patch
+          patch -p1 < kernel-4.19_5.4.patch
 
           curl -LSs https://raw.githubusercontent.com/ThRE-Team/KernelSU-Next/main/kernel/setup.sh | bash -s main
           
