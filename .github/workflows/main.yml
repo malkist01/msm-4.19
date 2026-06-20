@@ -23,13 +23,15 @@ jobs:
       KERNELNAME: ${{ github.event.inputs.kernelname }}
 
     steps:
-      - name: Checkout repo
+      - name: Checkout lineage-20
         uses: actions/checkout@v4
-        
-      - name: KernelSU
+        with:
+          ref: lineage-20
+
+      - name: SukiSU Setup
         run: |
-          curl -LSs https://raw.githubusercontent.com/ThRE-Team/KernelSU-Next/main/kernel/setup.sh | bash -s main
-          
+          curl -LSs "https://raw.githubusercontent.com/KanariaAlt/SukiSU-Ultra/nongki/kernel/setup.sh" | bash -s nongki
+
       - name: Clone dts kernel
         run: |
           git clone --recursive --depth=1 -j $(nproc) https://github.com/imren0x/kernel_devicetree_msm-4.19 -b main arch/arm64/boot/dts/vendor-legacy
