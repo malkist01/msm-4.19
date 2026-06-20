@@ -62,7 +62,7 @@ jobs:
 
       - name: Clone AOSP Clang 21
         run: |
-          wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r547379.tar.gz -O clang.tar.gz
+          wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/4d2864f08ff2c290563fb903a5156e0504620bbe/clang-r563880c.tar.gz -O clang.tar.gz
           mkdir -p clang && tar -xf clang.tar.gz -C clang
 
       # 4. Set environment variables
