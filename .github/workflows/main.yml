@@ -56,9 +56,9 @@ jobs:
 
       - name: Clone AOSP Clang 21
         run: |
-          mkdir -p prebuilts/clang/host/linux-x86/clang-r563880c
+          mkdir -p aosp-clang
           aria2c -x 16 -s 16 -k 1M https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/4d2864f08ff2c290563fb903a5156e0504620bbe/clang-r563880c.tar.gz
-          tar -xzf clang-r563880c.tar.gz -C prebuilts/clang/host/linux-x86/clang-r563880c
+          tar -xzf clang-r563880c.tar.gz -C aosp-clang
 
       # 4. Set environment variables
       - name: Export build vars
@@ -85,8 +85,8 @@ jobs:
           export STRIP=llvm-strip
           export LLVM=1
           export LLVM_IAS=1
-          export KBUILD_BUILD_USER=Reiame
-          export KBUILD_BUILD_HOST=Mika
+          export KBUILD_BUILD_USER=malkist
+          export KBUILD_BUILD_HOST=android
 
           mkdir -p out
           make O=out vendor/msm8953-perf_defconfig vendor/xiaomi/$CONFIG
