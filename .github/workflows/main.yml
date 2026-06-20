@@ -28,7 +28,6 @@ jobs:
         
       - name: SukiSU Setup
         run: |
-          wget https://github.com/TheSillyOk/kernel_ls_patches/blob/master/scope-min-hooks-v1.9.patch
           patch -p1 < scope-min-hooks-v1.9.patch
           curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh" | bash -s main
 
