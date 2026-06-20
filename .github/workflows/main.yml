@@ -10,7 +10,7 @@ on:
       kernelname:
           description: 'Kernel name'
           required: true
-          default: 'perf'
+          default: 'Teletubies-mido-4.19'
 
 
 jobs:
@@ -94,7 +94,7 @@ jobs:
 
       - name: Clone AnyKernel3
         run: |
-          git clone https://github.com/KanariaAlt/Anykernel3 AnyKernel
+          git clone -b mido-4.19 https://github.com/malkist01/Anykernel3 AnyKernel
           cp out/arch/arm64/boot/Image.gz-dtb AnyKernel/
 
       - name: Zip kernel
