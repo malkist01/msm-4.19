@@ -56,15 +56,14 @@ jobs:
 
       - name: Clone AOSP Clang 21
         run: |
-          mkdir -p aosp-clang
-          aria2c -x 16 -s 16 -k 1M https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/4d2864f08ff2c290563fb903a5156e0504620bbe/clang-r563880c.tar.gz
-          tar -xzf clang-r563880c.tar.gz -C aosp-clang
+          wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r547379.tar.gz -O clang.tar.gz
+          mkdir -p clang && tar -xf clang.tar.gz -C clang
 
       # 4. Set environment variables
       - name: Export build vars
         run: |
           export KERNEL_DIR=$PWD
-          export CLANG_PATH=$PWD/prebuilts/clang/host/linux-x86/clang-r547379/bin
+          export CLANG_PATH=$PWD/clang/bin
           echo "PATH=$CLANG_PATH:/usr/bin:$PATH" >> $GITHUB_ENV
           echo "KERNEL_DIR=$KERNEL_DIR" >> $GITHUB_ENV
 
